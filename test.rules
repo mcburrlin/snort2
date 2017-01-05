@@ -1,3 +1,1 @@
-alert udp $EXTERNAL_NET any -> $HOME_NET 1900 (msg:"GPL MISC UPnP Location overflow"; content:"Location|3A|"; nocase; isdataat:128,relative; pcre:"/^Location\x3a[^\n]{128}/smi"; reference:bugtraq,3723; reference:cve,2001-0876; classtype:misc-attack; sid:2101388; rev:14;)
-
-alert udp $EXTERNAL_NET any -> $HOME_NET 1900 (msg:"GPL MISC UPnP malformed advertisement"; content:"NOTIFY * "; nocase; reference:bugtraq,3723; reference:cve,2001-0876; reference:cve,2001-0877; reference:url,www.microsoft.com/technet/security/bulletin/MS01-059.mspx; classtype:misc-attack; sid:2101384; rev:9;)
+alert tcp any any -> any 53 (msg:"SURICATA TCP port 53 but not DNS"; flow:to_server; app-layer-protocol:!dns; sid:2271014; rev:1;)
